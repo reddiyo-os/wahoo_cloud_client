@@ -10,12 +10,12 @@ Easy to install from the command line or import directly
 
 Command Line:
 
-    go get github.com/mornindew/wahoo_client/pkg
+    go get github.com/reddiyo-os/wahoo_cloud_client/pkg
 
 Import:
 
     import(
-    "github.com/mornindew/wahoo_client/pkg"
+    "github.com/reddiyo-os/wahoo_cloud_client/pkg"
     )
 
 ## How to Use
