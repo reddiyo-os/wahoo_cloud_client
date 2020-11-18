@@ -75,7 +75,7 @@ Import:
 
 ## Full Working Examples
 
-Refer to the [unit tests](https://github.com/mornindew/wahoo_client/tree/main/test) to see many more full working examples.
+Refer to the [unit tests](https://github.com/reddiyo-os/wahoo_cloud_client/blob/master/test/wahoo_test.go) to see many more full working examples.
 
     func TestWahooGetSpecificWorkoutSummary(t *testing.T) {
         workoutID := 55833989
