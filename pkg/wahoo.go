@@ -113,6 +113,36 @@ func (v *Client) RefreshToken(refreshToken string) (*Token, error) {
 	return token, nil
 }
 
+//Deauthorize User
+func (v *Client) DeauthorizeUser(accessToken string) error {
+	if accessToken == "" {
+		return errors.New("Missing Mandatory Value")
+	}
+
+	url := "https://" + v.baseURL + "/v1/permissions"
+	method := "DELETE"
+
+	client := &http.Client{}
+	req, err := http.NewRequest(method, url, nil)
+
+	if err != nil {
+		return err
+	}
+	req.Header.Add("Authorization", "Bearer "+accessToken)
+
+	res, err := client.Do(req)
+	if err != nil {
+		return err
+	}
+	defer res.Body.Close()
+
+	//Handle anything above 299
+	if res.StatusCode >= 300 {
+		return constructWahooErrorFromResponse(res.StatusCode)
+	}
+	return nil
+}
+
 //USER ENDPOINTS
 
 //GetUserData - gets the user data
